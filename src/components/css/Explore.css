@@ -1,0 +1,86 @@
+.background-parent{
+    height: 760px;
+    position: relative;
+    top: -80px;
+}
+.background{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-transform: skewY(12deg);
+    transform: skewY(12deg);
+    -webkit-transform-origin: 100%;
+    transform-origin: 100%;
+    background: -o-linear-gradient(240deg, #222222 15%, #373737 70%, #3c4859 94%);
+    background: linear-gradient(-150deg, #222222 15%, #373737 70%, #3c4859 94%);
+}
+.background-rev{
+     top: 0;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    -webkit-transform: skewY(-12deg);
+    transform: skewY(-12deg);
+    -webkit-transform-origin: 0%;
+    transform-origin: 0%;
+    background: white;
+
+}
+.background-r{
+    top: 0;
+      position: absolute;
+      /* z-index: -1; */
+      width: 100%;
+      height: 100%;
+      /* -webkit-transform: skewY(-12deg); */
+      transform: skewY(-12deg);
+      /* -webkit-transform-origin: 100%; */
+      transform-origin: 100%;
+}
+.card-base{
+   
+    position: relative;
+    margin:auto;
+    height: 300px;
+    width: 260px;
+    -webkit-perspective: 600px;
+    perspective: 600px;
+}
+.explore-card{
+    position: absolute;
+    -webkit-perspective: 600px;
+    perspective: 600px;
+    height: 100%;
+    width: 100%;
+    -webkit-transform-origin: 0 50%;
+    transform-origin: 0 50%;
+}
+.explore-card:nth-child(1){
+    transform:scale(0.6);
+}
+.explore-card:nth-child(2){
+    transform:scale(0.8);
+}
+.explore-card:nth-child(1) .card{
+left:-210px  !important;
+}
+.explore-card:nth-child(2) .card{
+    left:-90px !important;
+}
+.explore-card:nth-child(3) .card {
+    -webkit-animation-delay: 1600ms;
+    animation-delay: 1600ms;
+}
+@media  screen and (max-width:767px) {
+    .card-base{
+        height: 250px;
+        width: 210px;
+    }
+    .explore-card:nth-child(1) .card{
+        left:250px  !important;
+        transform: scale(0.8);
+    }
+    
+    
+}

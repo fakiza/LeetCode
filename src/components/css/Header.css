@@ -1,0 +1,68 @@
+.navbar_container{
+    background-image: url('/images/image_1.jpg');
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+@media screen and (max-width: 767px) {
+  
+    .nav-menu {
+      display: flex;
+      flex-direction: column;
+      width: 300px;
+      height:calc(100vh - 64px);
+      position: absolute;
+      top: 64px;
+      left: -300px;
+      opacity: 1;
+      transition: all 0.5s ease;
+    
+    }
+  
+    .nav-menu.active {
+      background: rgba(31,41,55 ,1);
+      left: 0px;
+      opacity: 1;
+      transition: all 0.5s ease;
+      z-index: 1;
+    }
+     .logo_image{
+      width:150px;
+      height: auto;
+     }
+
+  }
+  @keyframes fadeInDown {
+    from {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .animate-fadeInDown {
+    animation: fadeInDown 1s ease-out ;
+  }
+  .animate-floating {
+    animation: floating 4s infinite;
+  }
+  @keyframes floating{
+    0%{
+      /* -webkit-transform: translateY(0px) rotateY(350deg); */
+      transform: translateY(0px) rotateY(350deg);
+    }
+    
+    50% {
+      /* -webkit-transform: translateY(20px) rotateY(350deg); */
+      transform: translateY(40px) rotateY(350deg);
+    }
+    
+    100% {
+      /* -webkit-transform: translateY(0px) rotateY(350deg); */
+      transform: translateY(0px) rotateY(350deg);
+    }
+    }

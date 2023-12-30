@@ -1,0 +1,34 @@
+*,html {
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+  }
+body{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+.active_link{
+  color:#1a8cff !important;
+}
+code[class*="language-"], 
+pre[class*="language-"] {
+  font-size: 14px !important;
+}
+
+.snackbar {
+  position: fixed;
+  bottom: -100px;
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  transition: transform 0.3s linear; 
+}
+
+.snackbar.show {
+  transform: translateX(-50%) translateY(-150px);
+}
