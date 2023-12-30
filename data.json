@@ -1,0 +1,115 @@
+{
+    "codes": [
+      {
+        "id": "add_twonumbers",
+        "contents": "/**\n* Function to add two numbers.\n* @param {number} num1 - The first number.\n* @param {number} num2 - The second number.\n* @returns {number} - The sum of the two numbers.\n*/\nfunction addNumbers(num1, num2) {\n  return num1 + num2;\n}\n\n// Example usage:\nconst result = addNumbers(5, 7);\nconsole.log('Sum:', result);\n",
+        "description":"adding two numbers"
+      },
+      {
+        "id": "hello_world",
+        "contents": "/**\n* Function to display 'Hello, World!'\n*/\nfunction displayHelloWorld() {\n  console.log('Hello, World!');\n}\n\n// Call the function to display the message\n displayHelloWorld();\n",
+        "description": "simple hello world "
+      },
+      {
+        "id": "longest_substring",
+        "contents": "/**\n* Function to find the Longest Substring Without Repeating Characters.\n* @param {string} s - The input string.\n* @returns {number} - Length of the longest substring without repeating characters.\n*/\nfunction lengthOfLongestSubstring(s) {\n  let maxLength = 0;\n  let start = 0;\n  let charIndexMap = {};\n\n  for (let end = 0; end < s.length; end++) {\n    if (charIndexMap[s[end]] !== undefined && charIndexMap[s[end]] >= start) {\n      start = charIndexMap[s[end]] + 1;\n    }\n\n    charIndexMap[s[end]] = end;\n    maxLength = Math.max(maxLength, end - start + 1);\n  }\n\n  return maxLength;\n}\n\n// Example usage:\n const result = lengthOfLongestSubstring('abcabcbb');\n console.log('Length of the longest substring without repeating characters:', result);\n",
+        "description": "Longest Substring Without Repeating Characters"
+      },
+      {
+        "id": "median_of_two_sorted_arrays",
+        "contents": "/**\n* Function to find the median of two sorted arrays.\n* @param {number[]} nums1 - The first sorted array.\n* @param {number[]} nums2 - The second sorted array.\n* @returns {number} - The median of the combined sorted arrays.\n*/\nfunction findMedianSortedArrays(nums1, nums2) {\n  const mergedArray = [...nums1, ...nums2].sort((a, b) => a - b);\n  const length = mergedArray.length;\n\n  if (length % 2 === 0) {\n    const midIndex1 = length / 2 - 1;\n    const midIndex2 = length / 2;\n    return (mergedArray[midIndex1] + mergedArray[midIndex2]) / 2;\n  } else {\n    const midIndex = Math.floor(length / 2);\n    return mergedArray[midIndex];\n  }\n}\n\n// Example usage:\n\n const nums1 = [1, 3];\n const nums2 = [2];\n const result = findMedianSortedArrays(nums1, nums2);\n console.log('Median of the two sorted arrays:', result);\n",
+        "description": " Median of Two Sorted Arrays"
+      },
+      {
+        "id": "palindrome_number",
+        "contents": "/**\n* function to check if a number is a palindrome.\n* @param {number} x - the input number.\n* @returns {boolean} - true if the number is a palindrome, false otherwise.\n*/\nfunction isPalindrome(x) {\n if (x < 0) {\n return false;\n }\n\n const reversed = parseInt(x.toString().split('').reverse().join(''));\n\n return x === reversed;\n}\n\n// Example usage:\nconst inputNumber = 121;\nconst result = isPalindrome(inputNumber);\nconsole.log('Is palindrome:', result);\n",
+        "description": "check if a number is a palindrome."
+      },  
+      {
+        "id": "longest_palindromic_substring",
+        "contents": "/**\n* function to find the longest palindromic substring.\n* @param {string} s - the input string.\n* @returns {string} - the longest palindromic substring.\n*/\nfunction longestPalindrome(s) {\n let start = 0;\n let end = 0;\n\n for (let i = 0; i < s.length; i++) {\n const len1 = expandAroundCenter(s, i, i);\n const len2 = expandAroundCenter(s, i, i + 1);\n const len = Math.max(len1, len2);\n\n if (len > end - start) {\n start = i - Math.floor((len - 1) / 2);\n end = i + Math.floor(len / 2);\n }\n }\n\n return s.substring(start, end + 1);\n}\n\nfunction expandAroundCenter(s, left, right) {\n while (left >= 0 && right < s.length && s[left] === s[right]) {\n left--;\n right++;\n }\n\n return right - left - 1;\n}\n\n// Example usage:\nconst inputString = 'babad';\nconst result = longestPalindrome(inputString);\nconsole.log('Longest palindromic substring:', result);\n",
+        "description": "find the longest palindromic substring."
+      },
+      {
+        "id": "regular_expression_matching",
+        "contents": "/**\n* Function to check if a string matches a regular expression pattern.\n* @param {string} s - The input string.\n* @param {string} p - The regular expression pattern.\n* @returns {boolean} - True if the string matches the pattern, false otherwise.\n*/\nfunction isMatch(s, p) {\n const regex = new RegExp('^' + p + '$');\n return regex.test(s);\n}\n\n// Example usage:\nconst inputString = 'aa';\nconst pattern = 'a*';\nconst result = isMatch(inputString, pattern);\nconsole.log('Does the string match the pattern:', result);\n",
+        "description": "check if a string matches a regular expression pattern."
+      },
+      {
+        "id": "remove_nth_element_from_end_of_array",
+        "contents": "/**\n* Function to remove the nth element from the end of an array.\n* @param {Array} arr - The input array.\n* @param {number} n - The position of the element to remove from the end.\n* @returns {Array} - The modified array.\n*/\nfunction removeNthFromEnd(arr, n) {\n  if (n <= 0 || n > arr.length) {\n    return arr;\n  }\n\n  arr.splice(-n, 1);\n  return arr;\n}\n\n// Example usage:\nconst inputArray = [1, 2, 3, 4, 5];\nconst n = 2;\nconst result = removeNthFromEnd(inputArray, n);\nconsole.log('Modified array:', result);\n",
+        "description": "remove the nth element from the end of an array."
+      },
+      {
+        "id": "letter_combinations_of_phone_number",
+        "contents": "/**\n* Function to generate letter combinations of a phone number.\n* @param {string} digits - The input phone number digits.\n* @returns {string[]} - Array of letter combinations.\n*/\nfunction letterCombinations(digits) {\n  const digitMap = {\n    '2': 'abc',\n    '3': 'def',\n    '4': 'ghi',\n    '5': 'jkl',\n    '6': 'mno',\n    '7': 'pqrs',\n    '8': 'tuv',\n    '9': 'wxyz'\n  };\n\n  if (!digits) {\n    return [];\n  }\n\n  const result = [];\n  generateCombinations('', digits, 0);\n  return result;\n\n  function generateCombinations(current, digits, index) {\n    if (index === digits.length) {\n      result.push(current);\n      return;\n    }\n\n    const letters = digitMap[digits[index]];\n    for (let i = 0; i < letters.length; i++) {\n      generateCombinations(current + letters[i], digits, index + 1);\n    }\n  }\n}\n\n// Example usage:\n const phoneNumber = '23';\n const result = letterCombinations(phoneNumber);\n console.log('Letter combinations:', result);\n",
+        "description": "generate letter combinations of a phone number."
+      },
+      {
+        "id": "valid_parentheses",
+        "contents": "/**\n* Function to check if a given string of parentheses is valid.\n* @param {string} s - The input string containing parentheses.\n* @returns {boolean} - True if the parentheses are valid, false otherwise.\n*/\nfunction isValidParentheses(s) {\n  const stack = [];\n  const mapping = {')': '(', '}': '{', ']': '['};\n\n  for (let i = 0; i < s.length; i++) {\n    const char = s[i];\n\n    if (mapping[char]) {\n      const topElement = stack.length === 0 ? '#' : stack.pop();\n\n      if (topElement !== mapping[char]) {\n        return false;\n      }\n    } else {\n      stack.push(char);\n    }\n  }\n\n  return stack.length === 0;\n}\n\n// Example usage:\n const parenthesesString = '()[]{}';\n const result = isValidParentheses(parenthesesString);\n console.log('Are the parentheses valid?', result);\n",
+        "description": "check if a given string of parentheses is valid."
+      },
+      {
+        "id": "remove_duplicates_from_sorted_array",
+        "contents": "/**\n* Function to remove duplicates from a sorted array in-place.\n* @param {number[]} nums - The input sorted array.\n* @returns {number} - The length of the modified array with unique elements.\n*/\nfunction removeDuplicates(nums) {\n  if (nums.length === 0) {\n    return 0;\n  }\n\n  let uniqueIndex = 0;\n\n  for (let i = 1; i < nums.length; i++) {\n    if (nums[i] !== nums[uniqueIndex]) {\n      uniqueIndex++;\n      nums[uniqueIndex] = nums[i];\n    }\n  }\n\n  return uniqueIndex + 1;\n}\n\n// Example usage:\n// const sortedArray = [1, 1, 2, 2, 3, 4, 4, 5];\n// const resultLength = removeDuplicates(sortedArray);\n// console.log('Modified array length:', resultLength);\n// console.log('Modified array:', sortedArray.slice(0, resultLength));\n",
+        "description": "remove duplicates from a sorted array in-place."
+      },
+      {
+        "id": "remove_element",
+        "contents": "/**\n* Function to remove all instances of a specified value from an array in-place.\n* @param {number[]} nums - The input array.\n* @param {number} val - The value to remove.\n* @returns {number} - The length of the modified array without the specified value.\n*/\nfunction removeElement(nums, val) {\n  let i = 0;\n\n  for (let j = 0; j < nums.length; j++) {\n    if (nums[j] !== val) {\n      nums[i] = nums[j];\n      i++;\n    }\n  }\n\n  return i;\n}\n\n// Example usage:\n// const inputArray = [3, 2, 2, 3];\n// const valueToRemove = 3;\n// const resultLength = removeElement(inputArray, valueToRemove);\n// console.log('Modified array length:', resultLength);\n// console.log('Modified array:', inputArray.slice(0, resultLength));\n",
+        "description": "Function to remove all instances of a specified value from an array in-place."
+      },
+      {
+        "id": "substring_with_concatenation_of_all_words",
+        "contents": "/**\n* Function to find all starting indices of substring(s) in s that is a concatenation of each word exactly once.\n* @param {string} s - The input string.\n* @param {string[]} words - The array of words to concatenate.\n* @returns {number[]} - Array of starting indices of valid substrings.\n*/\nfunction findSubstring(s, words) {\n  if (words.length === 0 || s.length === 0) {\n    return [];\n  }\n\n  const wordLength = words[0].length;\n  const totalWordsLength = words.length * wordLength;\n  const wordMap = {};\n  const result = [];\n\n  for (const word of words) {\n    wordMap[word] = (wordMap[word] || 0) + 1;\n  }\n\n  for (let i = 0; i <= s.length - totalWordsLength; i++) {\n    const substring = s.slice(i, i + totalWordsLength);\n    const substringMap = {};\n    let isValid = true;\n\n    for (let j = 0; j < totalWordsLength; j += wordLength) {\n      const currentWord = substring.slice(j, j + wordLength);\n      substringMap[currentWord] = (substringMap[currentWord] || 0) + 1;\n\n      if (substringMap[currentWord] > (wordMap[currentWord] || 0)) {\n        isValid = false;\n        break;\n      }\n    }\n\n    if (isValid) {\n      result.push(i);\n    }\n  }\n\n  return result;\n}\n\n// Example usage:\n// const inputString = 'barfoothefoobarman';\n// const wordsArray = ['foo','bar'];\n// const resultIndices = findSubstring(inputString, wordsArray);\n// console.log('Starting indices of valid substrings:', resultIndices);\n",
+        "description": "find all starting indices of substring(s) in s that is a concatenation of each word exactly once."
+      },
+      {
+        "id": "longest_valid_parentheses",
+        "contents": "/**\n* Function to find the length of the longest valid parentheses substring in a given string.\n* @param {string} s - The input string.\n* @returns {number} - The length of the longest valid parentheses substring.\n*/\nfunction longestValidParentheses(s) {\n  let maxLen = 0;\n  const stack = [-1];\n\n  for (let i = 0; i < s.length; i++) {\n    if (s[i] === '(') {\n      stack.push(i);\n    } else {\n      stack.pop();\n\n      if (stack.length === 0) {\n        stack.push(i);\n      } else {\n        maxLen = Math.max(maxLen, i - stack[stack.length - 1]);\n      }\n    }\n  }\n\n  return maxLen;\n}\n\n// Example usage:\n// const inputString = '(()())';\n// const resultLength = longestValidParentheses(inputString);\n// console.log('Length of the longest valid parentheses substring:', resultLength);\n",
+        "description": "find the length of the longest valid parentheses substring in a given string."
+      },
+      {
+        "id": "valid_sudoku",
+        "contents": "/**\n* Function to check if a 9x9 Sudoku board is valid.\n* @param {character[][]} board - The input Sudoku board represented as a 2D array.\n* @returns {boolean} - True if the Sudoku board is valid, false otherwise.\n*/\nfunction isValidSudoku(board) {\n  const rows = Array.from({ length: 9 }, () => new Set());\n  const columns = Array.from({ length: 9 }, () => new Set());\n  const boxes = Array.from({ length: 9 }, () => new Set());\n\n  for (let i = 0; i < 9; i++) {\n    for (let j = 0; j < 9; j++) {\n      const cellValue = board[i][j];\n\n      if (cellValue === '.') continue;\n\n      if (rows[i].has(cellValue) || columns[j].has(cellValue) || boxes[Math.floor(i / 3) * 3 + Math.floor(j / 3)].has(cellValue)) {\n        return false;\n      }\n\n      rows[i].add(cellValue);\n      columns[j].add(cellValue);\n      boxes[Math.floor(i / 3) * 3 + Math.floor(j / 3)].add(cellValue);\n    }\n  }\n\n  return true;\n}\n\n// Example usage:\n// const sudokuBoard = [\n//   ['5','3','.','.','7','.','.','.','.'],\n//   ['6','.','.','1','9','5','.','.','.'],\n//   ['.','9','8','.','.','.','.','6','.'],\n//   ['8','.','.','.','6','.','.','.','3'],\n//   ['4','.','.','8','.','3','.','.','1'],\n//   ['7','.','.','.','2','.','.','.','6'],\n//   ['.','6','.','.','.','.','2','8','.'],\n//   ['.','.','.','4','1','9','.','.','5'],\n//   ['.','.','.','.','8','.','.','7','9']\n// ];\n// const result = isValidSudoku(sudokuBoard);\n// console.log('Is the Sudoku board valid?', result);\n",
+        "description": "check if a 9x9 Sudoku board is valid."
+      },
+      {
+        "id": "pow_function",
+        "contents": "/**\n* Function to calculate the power of x raised to the nth exponent.\n* @param {number} x - The base.\n* @param {number} n - The exponent.\n* @returns {number} - The result of x raised to the nth exponent.\n*/\nfunction myPow(x, n) {\n  if (n === 0) {\n    return 1;\n  }\n\n  if (n < 0) {\n    x = 1 / x;\n    n = -n;\n  }\n\n  let result = 1;\n\n  while (n > 0) {\n    if (n % 2 === 1) {\n      result *= x;\n    }\n\n    x *= x;\n    n = Math.floor(n / 2);\n  }\n\n  return result;\n}\n\n// Example usage:\n// const base = 2;\n// const exponent = 3;\n// const result = myPow(base, exponent);\n// console.log('Result of', base, 'raised to the power of', exponent, ':', result);\n",
+        "description": "calculate the power of x raised to the nth exponent."
+      },
+      {
+        "id": "sqrt_function",
+        "contents": "/**\n* Function to calculate the square root of x.\n* @param {number} x - The input number.\n* @returns {number} - The square root of x.\n*/\nfunction mySqrt(x) {\n  if (x === 0) {\n    return 0;\n  }\n\n  let left = 1;\n  let right = Math.floor(x / 2) + 1;\n  let result = 0;\n\n  while (left <= right) {\n    const mid = Math.floor((left + right) / 2);\n    const midSquared = mid * mid;\n\n    if (midSquared === x) {\n      return mid;\n    } else if (midSquared < x) {\n      left = mid + 1;\n      result = mid;\n    } else {\n      right = mid - 1;\n    }\n  }\n\n  return result;\n}\n\n// Example usage:\n// const inputNumber = 16;\n// const result = mySqrt(inputNumber);\n// console.log('Square root of', inputNumber, ':', result);\n",
+        "description": "calculate the square root of x."
+      },
+      {
+        "id": "add_binary",
+        "contents": "/**\n* Function to add two binary strings.\n* @param {string} a - The first binary string.\n* @param {string} b - The second binary string.\n* @returns {string} - The sum of the two binary strings.\n*/\nfunction addBinary(a, b) {\n  let result = '';\n  let carry = 0;\n  let i = a.length - 1;\n  let j = b.length - 1;\n\n  while (i >= 0 || j >= 0 || carry > 0) {\n    const digitA = i >= 0 ? parseInt(a[i], 2) : 0;\n    const digitB = j >= 0 ? parseInt(b[j], 2) : 0;\n    const sum = digitA + digitB + carry;\n\n    result = (sum % 2).toString() + result;\n    carry = Math.floor(sum / 2);\n\n    i--;\n    j--;\n  }\n\n  return result;\n}\n\n// Example usage:\n// const binaryA = '1010';\n// const binaryB = '1011';\n// const result = addBinary(binaryA, binaryB);\n// console.log('Sum of', binaryA, 'and', binaryB, ':', result);\n",
+        "description": "add two binary strings."
+      },
+      {
+        "id": "climbing_stairs",
+        "contents": "/**\n* Function to calculate the number of distinct ways to climb to the top of n stairs.\n* @param {number} n - The number of stairs.\n* @returns {number} - The number of distinct ways to climb to the top.\n*/\nfunction climbStairs(n) {\n  if (n <= 2) {\n    return n;\n  }\n\n  let prev1 = 1;\n  let prev2 = 2;\n\n  for (let i = 3; i <= n; i++) {\n    const current = prev1 + prev2;\n    prev1 = prev2;\n    prev2 = current;\n  }\n\n  return prev2;\n}\n\n// Example usage:\n// const numberOfStairs = 4;\n// const result = climbStairs(numberOfStairs);\n// console.log('Number of distinct ways to climb', numberOfStairs, 'stairs:', result);\n",
+        "description": "calculate the number of distinct ways to climb to the top of n stairs."
+      },
+      {
+        "id": "sort_colors",
+        "contents": "/**\n* Function to sort an array of colors represented as 0, 1, and 2.\n* @param {number[]} nums - The input array of colors.\n* @returns {void}\n*/\nfunction sortColors(nums) {\n  let low = 0;\n  let high = nums.length - 1;\n  let i = 0;\n\n  while (i <= high) {\n    if (nums[i] === 0) {\n      [nums[i], nums[low]] = [nums[low], nums[i]];\n      low++;\n      i++;\n    } else if (nums[i] === 2) {\n      [nums[i], nums[high]] = [nums[high], nums[i]];\n      high--;\n    } else {\n      i++;\n    }\n  }\n}\n\n// Example usage:\n// const colorsArray = [2, 0, 2, 1, 1, 0];\n// sortColors(colorsArray);\n// console.log('Sorted colors array:', colorsArray);\n",
+        "description": "sort an array of colors represented as 0, 1, and 2."
+      }
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    ]
+  }
+  
