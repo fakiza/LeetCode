@@ -31,7 +31,7 @@ const Explore = () => {
                     <div className=' w-3/4 mx-auto md:mx-4 text-center' >
                         <h2 className=' text-2xl py-4 font-bold'>Start Explore</h2>
                         <h5>Explore is a well-organized tool that helps you get the most out of LeetCode by providing structure to guide your progress towards the next step in your programming career.</h5>
-                        <div className='text-lg text-blue-700 py-4'><Link to="/explore">Get Started</Link></div>
+                        <div className='text-lg text-blue-700 py-4'><Link to="/leetcode">Get Started</Link></div>
                     </div>
                 </div>
                 
